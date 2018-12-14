@@ -8,34 +8,36 @@ fetch("https://www.engadget.com/rss-full.xml").then((res) => {
                 idx++;                          /*  idx just to count     */
                 if (idx < 11) {                 /*  and stop the foreach  */
                     /* creating elements */
-                    let card = document.createElement('div');
-                    card.className = "card m-3 w-100 p-3 card-fixed-height";
-                    let h1 = document.createElement('h1');
-                    h1.className = "h3 font-weight-light mb-0";
-                    let byWhen = document.createElement('span');
-                    byWhen.className = "text-muted small mb-3";
-                    let bodyTxt = document.createElement('p');
-                    bodyTxt.className = "truncated-txt text-muted";
-                    let hrefPost = document.createElement('a');
-                    hrefPost.href = item.querySelector('link').textContent;
-                    hrefPost.innerHTML = "&rarr;";
                     let date = new Date(item.querySelector('pubDate').textContent);
                     date = date.toLocaleString('en-US', {month: 'short', day: 'numeric', year: 'numeric'}); 
+
                     let categories = [];
                     item.querySelectorAll('category').forEach((el) => {
                         categories.push(el.textContent);
                     });
+
+                    let card = document.createElement('div');
+                    card.className = "card w-100 p-3 card-fixed-height";
+
+                    let h3 = document.createElement('a');
+                    h3.className = "h3 d-block font-weight-light mb-0";
+                    h3.href = item.querySelector('link').textContent;
+                    h3.innerHTML = item.querySelector('title').textContent;
                     
-                    /* appending everything to each card */
-                    h1.appendChild(hrefPost);
-                    card.appendChild(h1);
+                    let byWhen = document.createElement('span');
+                    byWhen.className = "text-muted small";
+                    byWhen.textContent = "By  " + item.querySelector('creator').textContent + " on " + date + " in " + categories.slice(0,3).join(', ');
+
+                    let bodyTxt = document.createElement('p');
+                    bodyTxt.className = "mt-3 truncated-txt text-muted";
+                    bodyTxt.textContent = item.querySelector('description').textContent.replace(/<\/?[^>]+(>|$)/g, "");
+                    
+                    /* constructing the card */
+                    card.appendChild(h3);
                     card.appendChild(byWhen);
                     card.appendChild(bodyTxt);
 
-                    /* creating content inside created elements */
-                    h1.textContent = item.querySelector('title').textContent;
-                    byWhen.textContent = "By  " + item.querySelector('creator').textContent + " on " + date + " in " + categories.slice(0,3).join(', ');
-                    bodyTxt.textContent = item.querySelector('description').textContent.replace(/<\/?[^>]+(>|$)/g, "");
+                    /* create card */
                     document.querySelector("section").appendChild(card);
                 }
             })
