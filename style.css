@@ -2,15 +2,13 @@
 .tech-font {
     font-family: 'Share Tech Mono', monospace;
 }
-.card-fixed-height {
-}
 .truncated-txt {
     max-height: 6em;
     text-align: justify;
     line-height: 1.2em; 
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: 0 2em 0 0.5em;
+    margin: 0 2em 0 0.2em;
 }
 .truncated-txt::before {
     content: "...";
