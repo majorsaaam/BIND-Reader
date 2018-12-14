@@ -42,7 +42,7 @@ fetch("https://www.engadget.com/rss-full.xml").then((res) => {
                 }
             })
         } catch (err) {
-            /* everybody commits mistakes... but you should never pull it to the origin */
+            /* everybody commits mistakes... but you should never push it to the origin */
             console.log("Error:\n", err);
         };
     })

@@ -8,13 +8,14 @@
     line-height: 1.2em; 
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: 0 2em 0 0.2em;
+    margin: 0 -1em 0 0.2em;
+    padding-right: 2em;
 }
 .truncated-txt::before {
     content: "...";
     position: absolute;
-    bottom: 1.2em;
-    right: 36px;
+    bottom: 1.15em;
+    right: 22px;
 }
 
 @media only screen and (max-width: 767px) {
