@@ -21,7 +21,11 @@ fetch("https://www.engadget.com/rss-full.xml").then((res) => {
                     hrefPost.innerHTML = "&rarr;";
                     let date = new Date(item.querySelector('pubDate').textContent);
                     date = date.toLocaleString('en-US', {month: 'short', day: 'numeric', year: 'numeric'}); 
-
+                    let categories = [];
+                    item.querySelectorAll('category').forEach((el) => {
+                        categories.push(el.textContent);
+                    });
+                    
                     /* appending everything to each card */
                     h1.appendChild(hrefPost);
                     card.appendChild(h1);
@@ -30,7 +34,7 @@ fetch("https://www.engadget.com/rss-full.xml").then((res) => {
 
                     /* creating content inside created elements */
                     h1.textContent = item.querySelector('title').textContent;
-                    byWhen.textContent = "By  " + item.querySelector('creator').textContent + " on " + date;
+                    byWhen.textContent = "By  " + item.querySelector('creator').textContent + " on " + date + " in " + categories.slice(0,3).join(', ');
                     bodyTxt.textContent = item.querySelector('description').textContent.replace(/<\/?[^>]+(>|$)/g, "");
                     document.querySelector("section").appendChild(card);
                 }
