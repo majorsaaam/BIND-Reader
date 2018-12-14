@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
-.tech-font {
-    font-family: 'Share Tech Mono', monospace;
-}
+.tech-font { font-family: 'Share Tech Mono', monospace; }
 .truncated-txt {
     max-height: 6em;
     text-align: justify;
@@ -19,24 +17,14 @@
 }
 
 @media only screen and (max-width: 767px) {
-    .truncated-txt {
-        max-height: 8.4em;
-    }
-    .h3 {
-        font-size: 1.40rem;
-    }
-    .card-columns {
-        column-count: 1;
-    }
+    .truncated-txt { max-height: 8.4em; }
+    .h3 { font-size: 1.40rem; }
+    .card-columns { column-count: 1; }
 }
 
 @media only screen and (min-width: 768px) {
-    .card-columns {
-        column-count: 2;
-    }
+    .card-columns { column-count: 2; }
 }
 @media only screen and (min-width: 1024px) {
-    .card-columns {
-        column-count: 3;
-    }
+    .card-columns { column-count: 3; }
 }
