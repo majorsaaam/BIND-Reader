@@ -1,2 +1,2 @@
-# BIND-Reader
-Exam for job application @ BindTuning
+# BIND-Reader (RSS reader in Javascript)
+Example of a RSS reader using JS and Bootstrap.
