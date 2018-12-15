@@ -17,7 +17,7 @@ fetch(url).then((res) => {
                 });
 
                 let card = document.createElement('div');
-                card.className = "card w-100 p-3 card-fixed-height";
+                card.className = "card w-100 p-3";
 
                 let h3 = document.createElement('a');
                 h3.className = "h3 d-block font-weight-light mb-0";
@@ -43,5 +43,5 @@ fetch(url).then((res) => {
         })
     })
 }, (reject) => {
-    alert("Connection error - fetching URL failed at " + url + ".\nVerify internet connection or try again later.");
+    alert("Connection error - fetching URL failed at " + url + ".\nVerify internet connection or try installing a CORS add-on for your browser!");
 })
